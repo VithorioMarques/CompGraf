@@ -1,0 +1,88 @@
+<InputScreen>:
+    GridLayout:
+        cols: 2
+        padding: 10
+        spacing: 10
+
+        Label:
+            text: "Etnia:"
+        TextInput:
+            id: etnia_input
+            multiline: False
+
+        Label:
+            text: "Idade:"
+        TextInput:
+            id: idade_input
+            multiline: False
+            input_filter: 'int'
+
+        Label:
+            text: "Peso:"
+        TextInput:
+            id: peso_input
+            multiline: False
+            input_filter: 'float'
+
+        Label:
+            text: "Sexo:"
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+
+            Label:
+                text: "M"
+            CheckBox:
+                id: male_checkbox
+                group: "gender"
+                on_active: app.checkbox_gender("M")
+            
+            Label:
+                text: "F"
+            CheckBox:
+                group: "gender"
+                on_active: app.checkbox_gender("F")
+
+        Label:
+            text: "Volume da malha:"
+        TextInput:
+            id: volume_malha_input
+            multiline: False
+            input_filter: 'float'
+
+        Button:
+            text: "Submit"
+            on_press: app.process_inputs()
+        
+        Button:
+            text: "Next"
+            on_press: root.manager.current = "meshScreen"
+
+<MeshScreen>:
+    GridLayout:
+        cols: 2
+        padding: 10
+        spacing: 10
+
+        Label:
+            size_hint_y: 0.2
+            text:"Arquivo da malha:"        
+        TextInput:
+            id: meshPath
+            size_hint_y: 0.2
+            multiline: False
+
+        FloatLayout:
+            Button:
+                size_hint_y: 0.2
+                pos_hint: {"x": 0, "y": 0}  # Position at the bottom-left corner
+                text: "Back"
+                on_press: root.manager.current = "inputScreen"
+
+            Button:
+                size_hint_y: 0.2
+                pos_hint: {"x": 1, "y": 0}  # Position at the bottom-right corner
+                text: "Open mesh"
+                on_press: app.open_mesh()
+            
+        
