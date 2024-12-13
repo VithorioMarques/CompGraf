@@ -11,6 +11,13 @@
             multiline: False
 
         Label:
+            text: "Altura:"
+        TextInput:
+            id: altura_input
+            multiline: False
+            input_filter: 'float'
+
+        Label:
             text: "Idade:"
         TextInput:
             id: idade_input
@@ -49,6 +56,12 @@
             id: volume_malha_input
             multiline: False
             input_filter: 'float'
+            
+        Label:
+            text: "% Gordura Calculado:"
+        Label:
+            id: perc_gordura
+            text: ""
 
         Button:
             text: "Submit"

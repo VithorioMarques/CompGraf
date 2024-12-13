@@ -10,10 +10,8 @@ class PLYRenderer:
             mesh = o3d.io.read_triangle_mesh(self.path)
             if not mesh.is_empty():
                 o3d.visualization.draw_geometries([mesh])
-            else:
-               print("Erro", f"O arquivo {self.path} está vazio ou inválido.")
-        except Exception as e:
-           print("Erro", f"Falha ao carregar o arquivo {self.path}: {str(e)}")
+        except:
+            pass
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
